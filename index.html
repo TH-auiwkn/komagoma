@@ -759,192 +759,348 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
 
-    <!-- ===== Hand-drawn illustrated Shibumi (front, holding bottle) ===== -->
-    <symbol id="shibumi-illust" viewBox="0 0 320 360">
-      <!-- Body / T-shirt -->
-      <path d="M 50 360 L 50 245 Q 50 218 90 212 L 130 215 Q 160 220 190 215 L 230 212 Q 270 218 270 245 L 270 360 Z"
+    <!-- ===== Hand-drawn illustrated Shibumi (front, both hands up holding bottle at face level) ===== -->
+    <symbol id="shibumi-illust" viewBox="0 0 360 420">
+      <!-- ===== Body / shoulders / upper arms ===== -->
+      <!-- T-shirt body -->
+      <path d="M 40 420 L 50 248 Q 58 215 105 208 L 145 220 L 180 240 L 215 220 L 255 208 Q 302 215 310 248 L 320 420 Z"
             fill="var(--shirt, #4a4a4a)" stroke="#1a1612" stroke-width="3" stroke-linejoin="round"/>
-      <!-- Shirt collar -->
-      <path d="M 130 215 Q 160 235 190 215" fill="none" stroke="#1a1612" stroke-width="2.5"/>
-      <!-- Neck -->
-      <rect x="138" y="195" width="44" height="28" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
-      <!-- Head -->
-      <path d="M 80 105 Q 78 35 160 32 Q 242 35 240 105 L 240 175 Q 240 215 160 222 Q 80 215 80 175 Z"
+      <!-- Left upper arm (shoulder to elbow, out and down) -->
+      <path d="M 105 215 Q 70 232 38 282 Q 28 305 55 318 Q 92 295 130 250 Z"
+            fill="var(--shirt, #4a4a4a)" stroke="#1a1612" stroke-width="3" stroke-linejoin="round"/>
+      <!-- Right upper arm -->
+      <path d="M 255 215 Q 290 232 322 282 Q 332 305 305 318 Q 268 295 230 250 Z"
+            fill="var(--shirt, #4a4a4a)" stroke="#1a1612" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- ===== Forearms (elbow → wrist), skin colored, going UP toward bottle ===== -->
+      <!-- Left forearm: from elbow (~38,300) up to wrist near bottle (~130,260) -->
+      <path d="M 30 295 Q 25 280 45 275 L 130 240 Q 148 255 138 275 L 60 318 Q 32 318 30 295 Z"
+            fill="#f0cda6" stroke="#1a1612" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- Right forearm -->
+      <path d="M 330 295 Q 335 280 315 275 L 230 240 Q 212 255 222 275 L 300 318 Q 328 318 330 295 Z"
+            fill="#f0cda6" stroke="#1a1612" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- ===== Neck & collar ===== -->
+      <path d="M 158 198 L 158 222 Q 180 232 202 222 L 202 198 Z" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
+      <path d="M 145 220 Q 180 247 215 220" fill="none" stroke="#1a1612" stroke-width="2.5"/>
+      <path d="M 152 226 Q 180 240 208 226" fill="none" stroke="#3a3530" stroke-width="1.5" opacity="0.5"/>
+
+      <!-- ===== Head ===== -->
+      <path d="M 92 115 Q 92 30 180 28 Q 268 30 268 115 L 266 175 Q 264 215 180 220 Q 96 215 94 175 Z"
             fill="#f0cda6" stroke="#1a1612" stroke-width="3"/>
       <!-- Ears -->
-      <ellipse cx="80" cy="135" rx="9" ry="14" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
-      <ellipse cx="240" cy="135" rx="9" ry="14" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
-      <!-- Hair (messy) -->
-      <path d="M 75 100 Q 60 22 115 25 L 125 48 L 138 22 L 152 50 L 165 22 L 180 50 L 195 22 L 208 48 Q 260 22 245 100 Q 235 70 215 68 L 200 80 Q 180 70 160 78 L 145 70 Q 125 80 105 70 L 90 80 Q 78 75 75 100 Z"
-            fill="#1a1612" stroke="#1a1612" stroke-width="2"/>
-      <!-- Hair shine -->
-      <path d="M 100 55 Q 110 45 125 50" stroke="#3a3530" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <!-- Eyebrows (furrowed, angled in) -->
-      <path d="M 100 110 Q 115 102 132 115" stroke="#1a1612" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M 220 110 Q 205 102 188 115" stroke="#1a1612" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <!-- Frown lines between brows -->
-      <line x1="151" y1="120" x2="151" y2="138" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
-      <line x1="158" y1="120" x2="158" y2="140" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
-      <line x1="165" y1="120" x2="165" y2="138" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
-      <!-- Eyes (squinting / closed - downward curves) -->
-      <path d="M 100 138 Q 116 150 132 138" stroke="#1a1612" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <path d="M 188 138 Q 204 150 220 138" stroke="#1a1612" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <!-- Cheek squish -->
-      <path d="M 90 165 Q 95 158 105 162" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <path d="M 215 162 Q 225 158 230 165" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <!-- Beard -->
-      <path d="M 90 160 Q 100 210 160 222 Q 220 210 230 160 Q 215 188 195 188 Q 178 195 160 192 Q 142 195 125 188 Q 105 188 90 160 Z"
+      <path d="M 92 132 Q 80 134 82 158 Q 88 168 95 165 Z" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
+      <path d="M 268 132 Q 280 134 278 158 Q 272 168 265 165 Z" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
+
+      <!-- ===== Hair (messy, parted, covering forehead) ===== -->
+      <path d="M 90 108 Q 75 22 128 20 L 142 50 L 160 18 L 178 52 L 200 18 L 220 50 L 238 22 Q 290 26 270 110 Q 258 72 232 78 L 212 92 Q 188 78 168 88 L 148 78 Q 122 82 105 78 L 92 92 Q 86 82 90 108 Z"
             fill="#1a1612"/>
-      <!-- Mustache -->
-      <path d="M 130 175 Q 140 172 150 178 Q 160 172 170 178 Q 180 172 190 175 Q 180 182 170 180 Q 160 178 150 180 Q 140 182 130 175 Z"
+      <path d="M 108 50 Q 122 40 140 48" stroke="#3a3530" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 205 42 Q 222 35 235 45" stroke="#3a3530" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.55"/>
+
+      <!-- ===== Eyebrows (heavy, sharply angled inward = furrowed) ===== -->
+      <path d="M 100 120 Q 122 105 150 130" stroke="#1a1612" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M 260 120 Q 238 105 210 130" stroke="#1a1612" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+      <!-- ===== Frown lines between brows ===== -->
+      <path d="M 168 122 Q 167 138 169 148" stroke="#1a1612" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M 180 122 L 180 150" stroke="#1a1612" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 192 122 Q 193 138 191 148" stroke="#1a1612" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+      <!-- ===== Eyes (tightly squeezed shut — strong downward curves) ===== -->
+      <path d="M 100 152 Q 128 170 152 150" stroke="#1a1612" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <path d="M 208 150 Q 232 170 260 152" stroke="#1a1612" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <!-- Lash hint above the squeeze -->
+      <path d="M 110 148 Q 128 156 145 148" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M 215 148 Q 232 156 250 148" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <!-- Crow's feet (squinting wrinkles) -->
+      <path d="M 95 148 L 87 145" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 95 156 L 87 160" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 95 164 L 88 168" stroke="#1a1612" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 265 148 L 273 145" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 265 156 L 273 160" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 265 164 L 272 168" stroke="#1a1612" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- ===== Nose ===== -->
+      <path d="M 180 152 Q 172 178 168 192 Q 180 200 192 192 Q 188 178 180 152"
+            fill="none" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="173" cy="188" rx="2" ry="1.5" fill="#1a1612" opacity="0.45"/>
+      <ellipse cx="187" cy="188" rx="2" ry="1.5" fill="#1a1612" opacity="0.45"/>
+
+      <!-- ===== Beard / stubble ===== -->
+      <path d="M 100 170 Q 110 220 180 226 Q 250 220 260 170
+               Q 250 200 222 205 Q 200 210 180 208 Q 160 210 138 205 Q 110 200 100 170 Z"
+            fill="#1a1612" opacity="0.95"/>
+      <!-- Sideburns -->
+      <path d="M 100 138 Q 95 168 108 182 L 118 168 Q 112 150 100 138 Z" fill="#1a1612"/>
+      <path d="M 260 138 Q 265 168 252 182 L 242 168 Q 248 150 260 138 Z" fill="#1a1612"/>
+
+      <!-- ===== Mustache ===== -->
+      <path d="M 138 196 Q 156 190 172 200 Q 180 192 188 200 Q 204 190 222 196
+               Q 210 208 188 202 Q 180 199 172 202 Q 150 208 138 196 Z"
             fill="#1a1612"/>
-      <!-- Mouth (grimacing - slightly open showing teeth/dark) -->
-      <path d="M 138 188 Q 160 200 182 188 Q 178 195 160 197 Q 142 195 138 188 Z" fill="#3a1a1a" stroke="#1a1612" stroke-width="1.5"/>
-      <!-- Bottle (held in front, between hands) -->
-      <g transform="translate(130, 218)">
+
+      <!-- ===== Mouth (open grimace) ===== -->
+      <path d="M 150 209 Q 180 226 210 209 L 204 216 Q 180 224 156 216 Z"
+            fill="#3a1a1a" stroke="#1a1612" stroke-width="1.5"/>
+      <line x1="168" y1="213" x2="168" y2="219" stroke="#5a3a3a" stroke-width="0.8" opacity="0.6"/>
+      <line x1="180" y1="214" x2="180" y2="220" stroke="#5a3a3a" stroke-width="0.8" opacity="0.6"/>
+      <line x1="192" y1="213" x2="192" y2="219" stroke="#5a3a3a" stroke-width="0.8" opacity="0.6"/>
+
+      <!-- ===== Soy-sauce bottle held UP at chin/face level ===== -->
+      <g transform="translate(148, 178) rotate(-7)">
         <!-- Cap -->
-        <rect x="14" y="0" width="22" height="22" fill="var(--cap, #b22020)" stroke="#1a1612" stroke-width="2.5" rx="2"/>
+        <rect x="13" y="0" width="30" height="24" fill="var(--cap, #b22020)" stroke="#1a1612" stroke-width="2.5" rx="2"/>
+        <line x1="14" y1="6" x2="42" y2="6" stroke="#7a0e0e" stroke-width="1"/>
+        <line x1="14" y1="12" x2="42" y2="12" stroke="#7a0e0e" stroke-width="1"/>
+        <line x1="14" y1="18" x2="42" y2="18" stroke="#7a0e0e" stroke-width="1"/>
         <!-- Neck -->
-        <rect x="17" y="14" width="16" height="14" fill="var(--bottle, #2a1208)" stroke="#1a1612" stroke-width="2"/>
-        <!-- Body -->
-        <path d="M 5 28 Q 5 22 12 20 L 38 20 Q 45 22 45 28 L 45 110 Q 45 120 35 122 L 15 122 Q 5 120 5 110 Z"
+        <rect x="17" y="24" width="22" height="14" fill="var(--bottle, #2a1208)" stroke="#1a1612" stroke-width="2"/>
+        <!-- Shoulders + body -->
+        <path d="M 4 50 Q 4 40 14 35 L 42 35 Q 52 40 52 50 L 52 138 Q 52 146 44 148 L 12 148 Q 4 146 4 138 Z"
               fill="var(--bottle, #2a1208)" stroke="#1a1612" stroke-width="2.5"/>
-        <!-- Highlight -->
-        <path d="M 10 38 L 10 100" stroke="#5a3018" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
-        <!-- Label -->
-        <rect x="8" y="48" width="34" height="46" fill="var(--label, #d4862a)" stroke="#1a1612" stroke-width="2"/>
-        <!-- Label text -->
-        <text x="25" y="73" font-family="serif" font-size="14" font-weight="900" fill="#1a1612" text-anchor="middle">渋</text>
-        <text x="25" y="86" font-family="sans-serif" font-size="5" fill="#1a1612" text-anchor="middle">SHIBUMI</text>
+        <!-- Glass highlight -->
+        <path d="M 11 54 L 11 135" stroke="#8a4628" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
+        <path d="M 47 60 L 47 100" stroke="#5a2c14" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <!-- Orange label -->
+        <rect x="7" y="62" width="42" height="58" fill="var(--label, #d4862a)" stroke="#1a1612" stroke-width="1.5"/>
+        <rect x="9" y="64" width="38" height="54" fill="none" stroke="#1a1612" stroke-width="0.6"/>
+        <text x="28" y="92" font-family="serif" font-size="24" font-weight="900" fill="#1a1612" text-anchor="middle">渋</text>
+        <line x1="12" y1="100" x2="44" y2="100" stroke="#1a1612" stroke-width="0.6"/>
+        <text x="28" y="113" font-family="sans-serif" font-size="5" fill="#1a1612" text-anchor="middle" letter-spacing="0.5">SHIBUMI</text>
       </g>
-      <!-- Left arm (his left = viewer's right won't work — use anatomical) -->
-      <!-- Right arm of viewer = left side of canvas -->
-      <path d="M 50 245 Q 35 222 75 215 Q 95 218 110 240 L 130 250 L 115 285 Q 80 280 50 245 Z"
-            fill="var(--shirt, #4a4a4a)" stroke="#1a1612" stroke-width="3" stroke-linejoin="round"/>
-      <!-- Right hand (holding bottom of bottle) -->
-      <ellipse cx="135" cy="265" rx="18" ry="22" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
-      <!-- Thumb -->
-      <path d="M 145 250 Q 152 245 152 255 Q 150 262 145 260" fill="#f0cda6" stroke="#1a1612" stroke-width="2"/>
-      <!-- Left arm of viewer = right side of canvas -->
-      <path d="M 270 245 Q 285 222 245 215 Q 225 218 210 240 L 190 250 L 205 285 Q 240 280 270 245 Z"
-            fill="var(--shirt, #4a4a4a)" stroke="#1a1612" stroke-width="3" stroke-linejoin="round"/>
-      <!-- Left hand (holding top/middle of bottle near face) -->
-      <ellipse cx="185" cy="245" rx="18" ry="22" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
-      <!-- Thumb -->
-      <path d="M 175 230 Q 168 225 168 235 Q 170 242 175 240" fill="#f0cda6" stroke="#1a1612" stroke-width="2"/>
+
+      <!-- ===== Hands gripping bottle (in front of bottle, at face level) ===== -->
+      <!-- Left hand (viewer's left) — grips bottle body lower, fingers wrapping right -->
+      <g>
+        <path d="M 115 222 Q 105 252 122 274 Q 142 280 168 270 L 172 232 L 145 218 Z"
+              fill="#f0cda6" stroke="#1a1612" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- Knuckle/finger separations wrapping around bottle -->
+        <path d="M 140 236 Q 152 240 168 238" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 138 248 Q 150 252 167 250" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 136 260 Q 148 264 165 262" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 136 270 Q 148 274 162 272" stroke="#1a1612" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <!-- Thumb curling over front of bottle -->
+        <path d="M 168 220 Q 184 222 182 244 Q 176 256 162 250" fill="#f0cda6" stroke="#1a1612" stroke-width="2"/>
+      </g>
+
+      <!-- Right hand (viewer's right) — grips upper bottle/cap area, higher up -->
+      <g>
+        <path d="M 245 198 Q 255 228 238 250 Q 218 256 192 246 L 188 208 L 215 194 Z"
+              fill="#f0cda6" stroke="#1a1612" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M 220 212 Q 208 216 192 214" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 222 224 Q 210 228 193 226" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 224 236 Q 212 240 195 238" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 224 246 Q 212 250 198 248" stroke="#1a1612" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <!-- Thumb -->
+        <path d="M 192 196 Q 176 198 178 220 Q 184 232 198 226" fill="#f0cda6" stroke="#1a1612" stroke-width="2"/>
+      </g>
     </symbol>
 
-    <!-- ===== Pixel-art Shibumi ===== -->
+    <!-- ===== Pixel-art Shibumi (32x32, hands up holding bottle at face level) ===== -->
     <symbol id="shibumi-pixel" viewBox="0 0 32 32" shape-rendering="crispEdges">
-      <!-- Background -->
       <rect width="32" height="32" fill="transparent"/>
-      <!-- Hair top -->
+
+      <!-- Hair top (messy spikes) -->
       <g fill="#1a1612">
+        <rect x="10" y="2" width="2" height="1"/>
+        <rect x="14" y="2" width="2" height="1"/>
+        <rect x="18" y="2" width="2" height="1"/>
         <rect x="9" y="3" width="14" height="1"/>
         <rect x="8" y="4" width="16" height="1"/>
         <rect x="7" y="5" width="18" height="2"/>
         <rect x="6" y="7" width="20" height="2"/>
       </g>
-      <!-- Face skin -->
+
+      <!-- Face base -->
       <g fill="#f0cda6">
-        <rect x="8" y="9" width="16" height="9"/>
-        <rect x="9" y="18" width="14" height="1"/>
+        <rect x="8" y="9" width="16" height="10"/>
       </g>
-      <!-- Hair sides at top -->
+
+      <!-- Sideburns / hair sides -->
       <g fill="#1a1612">
-        <rect x="6" y="9" width="2" height="3"/>
-        <rect x="24" y="9" width="2" height="3"/>
-        <!-- Eyebrows (angled) -->
+        <rect x="6" y="9" width="2" height="6"/>
+        <rect x="24" y="9" width="2" height="6"/>
+      </g>
+
+      <!-- Eyebrows (angled inward, furrowed) -->
+      <g fill="#1a1612">
+        <rect x="9" y="10" width="2" height="1"/>
         <rect x="10" y="11" width="3" height="1"/>
-        <rect x="11" y="10" width="2" height="1"/>
+        <rect x="21" y="10" width="2" height="1"/>
         <rect x="19" y="11" width="3" height="1"/>
-        <rect x="19" y="10" width="2" height="1"/>
-        <!-- Eyes (squinting - just lines) -->
-        <rect x="10" y="13" width="3" height="1"/>
-        <rect x="19" y="13" width="3" height="1"/>
         <!-- Frown lines between brows -->
         <rect x="15" y="11" width="1" height="3"/>
         <rect x="16" y="11" width="1" height="3"/>
-        <!-- Beard -->
-        <rect x="9" y="16" width="14" height="1"/>
-        <rect x="8" y="17" width="2" height="2"/>
-        <rect x="22" y="17" width="2" height="2"/>
-        <rect x="9" y="17" width="14" height="1"/>
-        <!-- Mustache -->
-        <rect x="12" y="15" width="8" height="1"/>
+        <!-- Squinted-shut eyes (single horizontal lines with tail = crinkle) -->
+        <rect x="9" y="13" width="5" height="1"/>
+        <rect x="18" y="13" width="5" height="1"/>
+        <rect x="8" y="14" width="1" height="1"/>
+        <rect x="23" y="14" width="1" height="1"/>
       </g>
-      <!-- Mouth (grimace - dark) -->
-      <rect x="13" y="16" width="6" height="1" fill="#3a1a1a"/>
-      <rect x="14" y="17" width="4" height="1" fill="#3a1a1a"/>
-      <!-- Beard bottom curve -->
+
+      <!-- Nose -->
+      <rect x="16" y="14" width="1" height="2" fill="#c89a78"/>
+
+      <!-- Mustache -->
       <g fill="#1a1612">
-        <rect x="10" y="18" width="12" height="1"/>
-        <rect x="11" y="19" width="10" height="1"/>
+        <rect x="12" y="15" width="8" height="1"/>
+        <rect x="11" y="16" width="3" height="1"/>
+        <rect x="18" y="16" width="3" height="1"/>
       </g>
+
+      <!-- Mouth (open grimace) -->
+      <g fill="#3a1a1a">
+        <rect x="14" y="16" width="4" height="1"/>
+        <rect x="13" y="17" width="6" height="1"/>
+      </g>
+
+      <!-- Beard -->
+      <g fill="#1a1612">
+        <rect x="8" y="17" width="3" height="2"/>
+        <rect x="21" y="17" width="3" height="2"/>
+        <rect x="9" y="18" width="14" height="1"/>
+        <rect x="10" y="19" width="12" height="1"/>
+        <rect x="11" y="20" width="10" height="1"/>
+      </g>
+
       <!-- Neck -->
-      <rect x="14" y="19" width="4" height="1" fill="#f0cda6"/>
-      <!-- T-shirt body -->
+      <rect x="14" y="20" width="4" height="1" fill="#f0cda6"/>
+
+      <!-- ===== Hands raised up at face level (in front of beard/lower face) ===== -->
+      <!-- Left hand: viewer's left — grips lower part of bottle body -->
+      <g fill="#f0cda6">
+        <rect x="10" y="17" width="3" height="1"/>
+        <rect x="9" y="18" width="4" height="1"/>
+        <rect x="9" y="19" width="4" height="2"/>
+        <rect x="10" y="21" width="3" height="1"/>
+      </g>
+      <!-- Right hand: viewer's right — grips bottle near cap -->
+      <g fill="#f0cda6">
+        <rect x="19" y="15" width="4" height="1"/>
+        <rect x="19" y="16" width="4" height="1"/>
+        <rect x="19" y="17" width="4" height="2"/>
+        <rect x="20" y="19" width="3" height="1"/>
+      </g>
+
+      <!-- ===== Soy-sauce bottle held UP between hands (face level) ===== -->
+      <!-- Cap (red) -->
+      <rect x="14" y="13" width="4" height="3" fill="#b22020"/>
+      <rect x="14" y="15" width="4" height="1" fill="#7a0e0e"/>
+      <!-- Neck -->
+      <rect x="15" y="16" width="2" height="1" fill="#2a1208"/>
+      <!-- Bottle body (dark brown) -->
+      <rect x="13" y="17" width="6" height="6" fill="#2a1208"/>
+      <rect x="13" y="17" width="1" height="6" fill="#5a2c14"/>
+      <!-- Orange label -->
+      <rect x="14" y="19" width="4" height="3" fill="#d4862a"/>
+      <!-- 渋 character on label -->
+      <text x="16" y="22" font-family="serif" font-size="3" fill="#1a1612" text-anchor="middle" font-weight="bold">渋</text>
+
+      <!-- ===== T-shirt body (lower portion) ===== -->
       <g fill="#4a4a4a">
-        <rect x="9" y="20" width="14" height="9"/>
-        <rect x="8" y="21" width="16" height="8"/>
         <rect x="7" y="22" width="18" height="7"/>
+        <rect x="6" y="23" width="20" height="6"/>
+        <rect x="5" y="24" width="22" height="5"/>
       </g>
       <!-- Shirt outline -->
       <g fill="#1a1612">
-        <rect x="6" y="22" width="1" height="7"/>
-        <rect x="25" y="22" width="1" height="7"/>
+        <rect x="4" y="24" width="1" height="5"/>
+        <rect x="27" y="24" width="1" height="5"/>
+        <rect x="14" y="21" width="4" height="1"/>
       </g>
-      <!-- Arms -->
+
+      <!-- ===== Forearms going up from shoulders to hands (skin) ===== -->
       <g fill="#f0cda6">
-        <rect x="9" y="24" width="2" height="2"/>
-        <rect x="21" y="24" width="2" height="2"/>
+        <rect x="5" y="22" width="2" height="2"/>
+        <rect x="6" y="20" width="2" height="2"/>
+        <rect x="7" y="19" width="2" height="2"/>
+        <rect x="25" y="22" width="2" height="2"/>
+        <rect x="24" y="20" width="2" height="2"/>
+        <rect x="23" y="19" width="2" height="2"/>
       </g>
-      <!-- Bottle held in front -->
-      <rect x="14" y="20" width="4" height="2" fill="#b22020"/> <!-- cap -->
-      <rect x="15" y="22" width="2" height="1" fill="#2a1208"/> <!-- neck -->
-      <rect x="13" y="23" width="6" height="6" fill="#2a1208"/> <!-- body -->
-      <rect x="14" y="25" width="4" height="3" fill="#d4862a"/> <!-- label -->
-      <text x="16" y="28" font-family="monospace" font-size="3" fill="#1a1612" text-anchor="middle" font-weight="bold">渋</text>
+      <!-- Arm outlines (subtle) -->
+      <g fill="#1a1612">
+        <rect x="4" y="22" width="1" height="2"/>
+        <rect x="27" y="22" width="1" height="2"/>
+      </g>
     </symbol>
 
-    <!-- ===== Line-art / minimalist Shibumi (single-color stamp) ===== -->
-    <symbol id="shibumi-line" viewBox="0 0 200 220">
+    <!-- ===== Line-art / minimalist Shibumi (hands up holding bottle at face level) ===== -->
+    <symbol id="shibumi-line" viewBox="0 0 200 240">
       <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
         <!-- Head -->
-        <path d="M 50 70 Q 50 28 100 25 Q 150 28 150 70 L 150 130 Q 150 160 100 165 Q 50 160 50 130 Z"/>
-        <!-- Hair -->
-        <path d="M 48 65 Q 42 18 75 22 L 82 38 L 92 18 L 102 38 L 112 18 L 122 38 L 130 22 Q 158 18 152 65"/>
-        <!-- Eyebrows angled -->
-        <path d="M 65 78 Q 75 72 88 82"/>
-        <path d="M 135 78 Q 125 72 112 82"/>
-        <!-- Eyes squinting -->
-        <path d="M 65 95 Q 76 103 88 95"/>
-        <path d="M 112 95 Q 124 103 135 95"/>
-        <!-- Frown lines -->
-        <path d="M 95 86 L 95 98"/>
-        <path d="M 105 86 L 105 98"/>
+        <path d="M 50 70 Q 50 25 100 22 Q 150 25 150 70 L 150 130 Q 150 162 100 168 Q 50 162 50 130 Z"/>
+        <!-- Hair (messy parted) -->
+        <path d="M 48 65 Q 40 12 72 18 L 80 36 L 92 14 L 102 38 L 114 14 L 124 36 L 132 18 Q 162 12 152 65"/>
+        <!-- Ears -->
+        <path d="M 50 88 Q 42 90 44 105 Q 48 110 52 108"/>
+        <path d="M 150 88 Q 158 90 156 105 Q 152 110 148 108"/>
+        <!-- Eyebrows (sharply angled, furrowed) -->
+        <path d="M 62 78 Q 74 70 90 86" stroke-width="4"/>
+        <path d="M 138 78 Q 126 70 110 86" stroke-width="4"/>
+        <!-- Frown lines between brows -->
+        <path d="M 94 80 L 94 96"/>
+        <path d="M 100 80 L 100 98"/>
+        <path d="M 106 80 L 106 96"/>
+        <!-- Eyes (tightly squinted shut) -->
+        <path d="M 62 100 Q 76 110 90 100"/>
+        <path d="M 110 100 Q 124 110 138 100"/>
+        <!-- Crow's feet -->
+        <path d="M 58 98 L 53 96" stroke-width="2"/>
+        <path d="M 58 105 L 53 108" stroke-width="2"/>
+        <path d="M 142 98 L 147 96" stroke-width="2"/>
+        <path d="M 142 105 L 147 108" stroke-width="2"/>
+        <!-- Nose -->
+        <path d="M 100 105 Q 94 125 92 134 Q 100 138 108 134 Q 106 125 100 105" stroke-width="2"/>
         <!-- Mustache -->
-        <path d="M 78 130 Q 90 126 100 132 Q 110 126 122 130"/>
-        <!-- Mouth -->
-        <path d="M 85 140 Q 100 148 115 140"/>
+        <path d="M 78 140 Q 92 136 100 142 Q 108 136 122 140"/>
         <!-- Beard outline -->
-        <path d="M 60 120 Q 70 158 100 162 Q 130 158 140 120"/>
-        <!-- Body (T-shirt) -->
-        <path d="M 30 220 L 30 175 Q 30 158 55 155 L 80 162 Q 100 168 120 162 L 145 155 Q 170 158 170 175 L 170 220"/>
-        <!-- Bottle in front -->
-        <rect x="80" y="160" width="40" height="55" rx="3"/>
-        <rect x="88" y="150" width="24" height="12" rx="2"/>
-        <rect x="84" y="178" width="32" height="22"/>
+        <path d="M 56 122 Q 66 162 100 168 Q 134 162 144 122"/>
+        <!-- Mouth (grimace) -->
+        <path d="M 86 148 Q 100 158 114 148"/>
+        <!-- Neck -->
+        <path d="M 88 168 L 88 178 Q 100 184 112 178 L 112 168"/>
+
+        <!-- Body / T-shirt -->
+        <path d="M 22 240 L 28 195 Q 32 175 60 170 L 88 178 L 100 188 L 112 178 L 140 170 Q 168 175 172 195 L 178 240"/>
+
+        <!-- Left arm raised: shoulder out to elbow then up to hand at bottle -->
+        <path d="M 60 175 Q 38 188 22 220 Q 18 235 32 238"/>
+        <path d="M 26 232 Q 38 220 60 200 L 80 188"/>
+        <!-- Right arm raised -->
+        <path d="M 140 175 Q 162 188 178 220 Q 182 235 168 238"/>
+        <path d="M 174 232 Q 162 220 140 200 L 120 188"/>
+
+        <!-- Bottle held UP at face level (cap near chin) -->
+        <!-- Cap -->
+        <rect x="86" y="135" width="28" height="14" rx="2"/>
+        <!-- Neck -->
+        <rect x="92" y="149" width="16" height="8"/>
+        <!-- Body -->
+        <path d="M 78 165 Q 78 158 86 156 L 114 156 Q 122 158 122 165 L 122 222 Q 122 230 114 232 L 86 232 Q 78 230 78 222 Z"/>
+        <!-- Label boundary -->
+        <rect x="82" y="180" width="36" height="40"/>
+
+        <!-- Hands gripping bottle -->
+        <!-- Left hand (lower position) -->
+        <path d="M 64 188 Q 60 210 70 226 Q 84 232 100 226 L 100 198 L 84 188 Z"/>
+        <path d="M 88 200 Q 94 205 100 204"/>
+        <path d="M 88 212 Q 94 217 100 216"/>
+        <!-- Right hand (upper position) -->
+        <path d="M 136 175 Q 140 196 130 212 Q 116 218 100 212 L 100 184 L 116 175 Z"/>
+        <path d="M 112 188 Q 106 193 100 192"/>
+        <path d="M 112 200 Q 106 205 100 204"/>
       </g>
       <!-- 渋 character on label -->
-      <text x="100" y="195" font-family="serif" font-size="14" fill="currentColor" text-anchor="middle" font-weight="900">渋</text>
+      <text x="100" y="205" font-family="serif" font-size="18" fill="currentColor" text-anchor="middle" font-weight="900">渋</text>
     </symbol>
 
     <!-- ===== Stamp / circular badge with Shibumi ===== -->
     <symbol id="shibumi-stamp" viewBox="0 0 200 200">
       <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="3"/>
       <circle cx="100" cy="100" r="85" fill="none" stroke="currentColor" stroke-width="1"/>
-      <use href="#shibumi-line" x="35" y="20" width="130" height="143" style="color: currentColor"/>
+      <use href="#shibumi-line" x="35" y="15" width="130" height="156" style="color: currentColor"/>
       <text x="100" y="185" font-family="sans-serif" font-size="9" fill="currentColor" text-anchor="middle" font-weight="800" letter-spacing="3">SHIBUMI</text>
     </symbol>
 
@@ -993,7 +1149,7 @@
   </div>
   <div class="hero-art" style="--shirt:#4a4a4a">
     <div class="badge">渋み<br/>100%</div>
-    <svg class="shibumi" viewBox="0 0 320 360" preserveAspectRatio="xMidYMid meet">
+    <svg class="shibumi" viewBox="0 0 360 420" preserveAspectRatio="xMidYMid meet">
       <use href="#shibumi-illust"/>
     </svg>
     <div class="stamp">EST. 2026 / TOKYO</div>
@@ -1031,7 +1187,7 @@
         <line x1="160" y1="0" x2="160" y2="400"/>
         <line x1="240" y1="0" x2="240" y2="400"/>
       </g>
-      <use href="#shibumi-line" x="55" y="80" width="220" height="242" style="color:#f5efe3"/>
+      <use href="#shibumi-line" x="55" y="60" width="220" height="280" style="color:#f5efe3"/>
       <text x="160" y="370" font-family="serif" font-size="14" fill="#c8a24a" text-anchor="middle" letter-spacing="6">— SHIBUMI —</text>
     </svg>
   </div>
@@ -1084,7 +1240,7 @@
       <div class="look-card" style="--shirt:#a23b1f">
         <svg viewBox="0 0 320 420" preserveAspectRatio="xMidYMid slice">
           <rect width="320" height="420" fill="#a23b1f"/>
-          <use href="#shibumi-illust" x="0" y="40" width="320" height="380"/>
+          <use href="#shibumi-illust" x="-20" y="20" width="360" height="400"/>
         </svg>
         <div class="caption">01 / RUST RED</div>
       </div>
@@ -1334,9 +1490,9 @@
   function productSVG(p) {
     if (p.style === 'illust') {
       return `
-        <svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice" style="--shirt:${p.shirt}">
-          <rect width="320" height="320" fill="${p.bg}"/>
-          <use href="#shibumi-illust" x="0" y="-10" width="320" height="340"/>
+        <svg viewBox="0 0 360 360" preserveAspectRatio="xMidYMid slice" style="--shirt:${p.shirt}">
+          <rect width="360" height="360" fill="${p.bg}"/>
+          <use href="#shibumi-illust" x="0" y="-20" width="360" height="400"/>
         </svg>`;
     }
     if (p.style === 'stamp') {
