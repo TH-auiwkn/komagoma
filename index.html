@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SHIBUMI STORE — 渋みのあるアパレル</title>
+<style>
+  :root {
+    --ink: #1a1612;
+    --paper: #f5efe3;
+    --paper-dim: #ebe2d0;
+    --rust: #a23b1f;
+    --rust-dark: #7a2c17;
+    --moss: #5b6347;
+    --gold: #c8a24a;
+    --skin: #f0cda6;
+    --shirt: #4a4a4a;
+    --bottle: #2a1208;
+    --label: #d4862a;
+    --cap: #b22020;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  /* ===== Header ===== */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(245, 239, 227, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(26, 22, 18, 0.12);
+  }
+  .nav {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    font-size: 20px;
+  }
+  .brand .mark {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    font-weight: 900;
+  }
+  .brand .ja {
+    font-size: 12px;
+    color: var(--rust);
+    letter-spacing: 0.3em;
+    margin-top: 2px;
+  }
+  nav.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+  }
+  nav.menu a {
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.2s;
+  }
+  nav.menu a:hover { color: var(--rust); }
+  nav.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: var(--rust);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s;
+  }
+  nav.menu a:hover::after { transform: scaleX(1); }
+  .cart-btn {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    background: var(--paper);
+    transition: all 0.2s;
+  }
+  .cart-btn:hover { background: var(--ink); color: var(--paper); }
+  .cart-count {
+    background: var(--rust);
+    color: var(--paper);
+    border-radius: 999px;
+    padding: 1px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 22px;
+    text-align: center;
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 80px 28px 60px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .hero-text .eyebrow {
+    color: var(--rust);
+    letter-spacing: 0.4em;
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+  .hero-text h1 {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+  .hero-text h1 .stroke {
+    -webkit-text-stroke: 2px var(--ink);
+    color: transparent;
+  }
+  .hero-text .ja-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--rust-dark);
+    margin-bottom: 28px;
+    letter-spacing: 0.1em;
+  }
+  .hero-text p.lead {
+    font-size: 16px;
+    max-width: 480px;
+    margin-bottom: 32px;
+    color: #4a4238;
+  }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    transition: all 0.2s;
+    border: 1.5px solid transparent;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--rust); }
+  .btn-ghost { border-color: var(--ink); color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+  .hero-art {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: var(--paper-dim);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(26, 22, 18, 0.1);
+  }
+  .hero-art::before {
+    content: "渋";
+    position: absolute;
+    top: -40px; right: -20px;
+    font-size: 380px;
+    color: rgba(162, 59, 31, 0.08);
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero-art .stamp {
+    position: absolute;
+    bottom: 24px; left: 24px;
+    background: var(--rust);
+    color: var(--paper);
+    padding: 8px 14px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    border-radius: 4px;
+    z-index: 2;
+  }
+  .hero-art .badge {
+    position: absolute;
+    top: 24px; right: 24px;
+    width: 90px; height: 90px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    transform: rotate(-12deg);
+    z-index: 2;
+  }
+  .hero-art svg.shibumi {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  /* ===== Marquee ===== */
+  .marquee {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 18px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(245, 239, 227, 0.1);
+    border-bottom: 1px solid rgba(245, 239, 227, 0.1);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    font-weight: 700;
+  }
+  .marquee-track span::before {
+    content: "◆";
+    margin-right: 60px;
+    color: var(--gold);
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===== About ===== */
+  .about {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 100px 28px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .about-art {
+    background: var(--ink);
+    border-radius: 24px;
+    aspect-ratio: 4 / 5;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-art svg {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+  }
+  .about-text .label {
+    color: var(--rust);
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    margin-bottom: 16px;
+  }
+  .about-text h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .about-text p {
+    margin-bottom: 18px;
+    color: #4a4238;
+    font-size: 15px;
+  }
+  .quote {
+    margin-top: 28px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--rust);
+    background: rgba(162, 59, 31, 0.05);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink);
+  }
+
+  /* ===== Products ===== */
+  section.products {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 60px 28px 100px;
+  }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .section-head h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+  .section-head .label {
+    color: var(--rust);
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    margin-bottom: 10px;
+  }
+  .filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    border: 1px solid var(--ink);
+    background: transparent;
+    transition: all 0.2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card .thumb {
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 16px;
+    border: 1px solid rgba(26, 22, 18, 0.08);
+  }
+  .card .thumb svg {
+    width: 100%; height: 100%;
+    display: block;
+  }
+  .card .tag {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    z-index: 2;
+  }
+  .card .tag.hot { background: var(--rust); color: var(--paper); }
+  .card .tag.new { background: var(--moss); color: var(--paper); }
+  .card .quick-add {
+    position: absolute;
+    bottom: 14px; right: 14px;
+    background: var(--ink);
+    color: var(--paper);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    line-height: 1;
+    transition: all 0.2s;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .card:hover .quick-add {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .card .quick-add:hover { background: var(--rust); transform: translateY(0) scale(1.1); }
+  .card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+  .card .meta {
+    font-size: 12px;
+    color: #6e6457;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .card .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card .price {
+    font-weight: 800;
+    font-size: 16px;
+  }
+  .card .colors {
+    display: flex;
+    gap: 6px;
+  }
+  .swatch {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(26, 22, 18, 0.2);
+  }
+
+  /* ===== Lookbook strip ===== */
+  .lookbook {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 100px 0;
+  }
+  .lookbook-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .lookbook .section-head h2 { color: var(--paper); }
+  .lookbook .section-head .label { color: var(--gold); }
+  .look-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  .look-card {
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: #2a2520;
+  }
+  .look-card svg { width: 100%; height: 100%; display: block; }
+  .look-card .caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+  }
+
+  /* ===== Reviews ===== */
+  .reviews {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 100px 28px;
+  }
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .review {
+    background: var(--paper-dim);
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(26, 22, 18, 0.06);
+  }
+  .review .stars { color: var(--gold); margin-bottom: 12px; font-size: 14px; letter-spacing: 2px; }
+  .review p { font-size: 14px; margin-bottom: 16px; color: #3a342c; }
+  .review .who {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 13px;
+    color: #6e6457;
+  }
+  .avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* ===== Newsletter ===== */
+  .newsletter {
+    background: var(--paper-dim);
+    padding: 80px 28px;
+  }
+  .newsletter-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .newsletter h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .newsletter p { margin-bottom: 28px; color: #4a4238; }
+  .newsletter form {
+    display: flex;
+    gap: 8px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .newsletter input {
+    flex: 1;
+    padding: 16px 20px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    background: var(--paper);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+  }
+  .newsletter input:focus { border-color: var(--rust); }
+  .newsletter button {
+    padding: 16px 28px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+  }
+
+  /* ===== Footer ===== */
+  footer.site {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 28px 30px;
+  }
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  footer.site h4 {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  footer.site ul { list-style: none; }
+  footer.site li { font-size: 13px; margin-bottom: 10px; opacity: 0.85; }
+  footer.site li a:hover { color: var(--gold); }
+  .footer-brand .brand .mark { background: var(--paper); color: var(--ink); }
+  .footer-brand p {
+    margin-top: 16px;
+    font-size: 13px;
+    opacity: 0.75;
+    max-width: 320px;
+  }
+  .copy {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(245, 239, 227, 0.15);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    opacity: 0.65;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ===== Cart Drawer ===== */
+  .cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 22, 18, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 100;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: auto; }
+  .cart-drawer {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(420px, 100%);
+    background: var(--paper);
+    z-index: 101;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-drawer.open { transform: translateX(0); }
+  .cart-header {
+    padding: 24px;
+    border-bottom: 1px solid rgba(26, 22, 18, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cart-header h3 { font-size: 18px; letter-spacing: 0.15em; }
+  .cart-close {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--ink);
+    display: grid; place-items: center;
+    font-size: 18px;
+  }
+  .cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 24px;
+  }
+  .cart-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6e6457;
+  }
+  .cart-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(26, 22, 18, 0.08);
+  }
+  .cart-item .ci-thumb {
+    width: 70px; height: 70px;
+    border-radius: 10px;
+    background: var(--paper-dim);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .cart-item .ci-thumb svg { width: 100%; height: 100%; }
+  .cart-item .ci-body { flex: 1; }
+  .cart-item .ci-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .cart-item .ci-meta { font-size: 12px; color: #6e6457; margin-bottom: 8px; }
+  .qty {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(26, 22, 18, 0.2);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .qty button { padding: 4px 10px; font-size: 14px; }
+  .qty button:hover { background: var(--paper-dim); }
+  .qty span { padding: 0 10px; font-size: 13px; min-width: 30px; text-align: center; }
+  .ci-remove {
+    margin-left: auto;
+    align-self: flex-start;
+    color: #6e6457;
+    font-size: 12px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .ci-remove:hover { color: var(--rust); }
+  .ci-price { font-weight: 700; font-size: 14px; margin-top: 4px; }
+  .cart-footer {
+    border-top: 1px solid rgba(26, 22, 18, 0.1);
+    padding: 24px;
+  }
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    text-align: center;
+  }
+  .checkout-btn:hover { background: var(--rust); }
+  .cart-note {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 12px;
+    color: #6e6457;
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    z-index: 200;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; padding-top: 40px; }
+    .about { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .review-grid { grid-template-columns: 1fr; }
+    .look-grid { grid-template-columns: 1fr 1fr; }
+    nav.menu { display: none; }
+  }
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .look-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Reusable SVG defs ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+
+    <!-- ===== Hand-drawn illustrated Shibumi (front, both hands up holding bottle at face level) ===== -->
+    <symbol id="shibumi-illust" viewBox="0 0 360 420">
+      <!-- ===== Body / shoulders / upper arms ===== -->
+      <!-- T-shirt body -->
+      <path d="M 40 420 L 50 248 Q 58 215 105 208 L 145 220 L 180 240 L 215 220 L 255 208 Q 302 215 310 248 L 320 420 Z"
+            fill="var(--shirt, #4a4a4a)" stroke="#1a1612" stroke-width="3" stroke-linejoin="round"/>
+      <!-- Left upper arm (shoulder to elbow, out and down) -->
+      <path d="M 105 215 Q 70 232 38 282 Q 28 305 55 318 Q 92 295 130 250 Z"
+            fill="var(--shirt, #4a4a4a)" stroke="#1a1612" stroke-width="3" stroke-linejoin="round"/>
+      <!-- Right upper arm -->
+      <path d="M 255 215 Q 290 232 322 282 Q 332 305 305 318 Q 268 295 230 250 Z"
+            fill="var(--shirt, #4a4a4a)" stroke="#1a1612" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- ===== Forearms (elbow → wrist), skin colored, going UP toward bottle ===== -->
+      <!-- Left forearm: from elbow (~38,300) up to wrist near bottle (~130,260) -->
+      <path d="M 30 295 Q 25 280 45 275 L 130 240 Q 148 255 138 275 L 60 318 Q 32 318 30 295 Z"
+            fill="#f0cda6" stroke="#1a1612" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- Right forearm -->
+      <path d="M 330 295 Q 335 280 315 275 L 230 240 Q 212 255 222 275 L 300 318 Q 328 318 330 295 Z"
+            fill="#f0cda6" stroke="#1a1612" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- ===== Neck & collar ===== -->
+      <path d="M 158 198 L 158 222 Q 180 232 202 222 L 202 198 Z" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
+      <path d="M 145 220 Q 180 247 215 220" fill="none" stroke="#1a1612" stroke-width="2.5"/>
+      <path d="M 152 226 Q 180 240 208 226" fill="none" stroke="#3a3530" stroke-width="1.5" opacity="0.5"/>
+
+      <!-- ===== Head ===== -->
+      <path d="M 92 115 Q 92 30 180 28 Q 268 30 268 115 L 266 175 Q 264 215 180 220 Q 96 215 94 175 Z"
+            fill="#f0cda6" stroke="#1a1612" stroke-width="3"/>
+      <!-- Ears -->
+      <path d="M 92 132 Q 80 134 82 158 Q 88 168 95 165 Z" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
+      <path d="M 268 132 Q 280 134 278 158 Q 272 168 265 165 Z" fill="#f0cda6" stroke="#1a1612" stroke-width="2.5"/>
+
+      <!-- ===== Hair (messy, parted, covering forehead) ===== -->
+      <path d="M 90 108 Q 75 22 128 20 L 142 50 L 160 18 L 178 52 L 200 18 L 220 50 L 238 22 Q 290 26 270 110 Q 258 72 232 78 L 212 92 Q 188 78 168 88 L 148 78 Q 122 82 105 78 L 92 92 Q 86 82 90 108 Z"
+            fill="#1a1612"/>
+      <path d="M 108 50 Q 122 40 140 48" stroke="#3a3530" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 205 42 Q 222 35 235 45" stroke="#3a3530" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.55"/>
+
+      <!-- ===== Eyebrows (heavy, sharply angled inward = furrowed) ===== -->
+      <path d="M 100 120 Q 122 105 150 130" stroke="#1a1612" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M 260 120 Q 238 105 210 130" stroke="#1a1612" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+      <!-- ===== Frown lines between brows ===== -->
+      <path d="M 168 122 Q 167 138 169 148" stroke="#1a1612" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M 180 122 L 180 150" stroke="#1a1612" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 192 122 Q 193 138 191 148" stroke="#1a1612" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+      <!-- ===== Eyes (tightly squeezed shut — strong downward curves) ===== -->
+      <path d="M 100 152 Q 128 170 152 150" stroke="#1a1612" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <path d="M 208 150 Q 232 170 260 152" stroke="#1a1612" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <!-- Lash hint above the squeeze -->
+      <path d="M 110 148 Q 128 156 145 148" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M 215 148 Q 232 156 250 148" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <!-- Crow's feet (squinting wrinkles) -->
+      <path d="M 95 148 L 87 145" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 95 156 L 87 160" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 95 164 L 88 168" stroke="#1a1612" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 265 148 L 273 145" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 265 156 L 273 160" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 265 164 L 272 168" stroke="#1a1612" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- ===== Nose ===== -->
+      <path d="M 180 152 Q 172 178 168 192 Q 180 200 192 192 Q 188 178 180 152"
+            fill="none" stroke="#1a1612" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="173" cy="188" rx="2" ry="1.5" fill="#1a1612" opacity="0.45"/>
+      <ellipse cx="187" cy="188" rx="2" ry="1.5" fill="#1a1612" opacity="0.45"/>
+
+      <!-- ===== Beard / stubble ===== -->
+      <path d="M 100 170 Q 110 220 180 226 Q 250 220 260 170
+               Q 250 200 222 205 Q 200 210 180 208 Q 160 210 138 205 Q 110 200 100 170 Z"
+            fill="#1a1612" opacity="0.95"/>
+      <!-- Sideburns -->
+      <path d="M 100 138 Q 95 168 108 182 L 118 168 Q 112 150 100 138 Z" fill="#1a1612"/>
+      <path d="M 260 138 Q 265 168 252 182 L 242 168 Q 248 150 260 138 Z" fill="#1a1612"/>
+
+      <!-- ===== Mustache ===== -->
+      <path d="M 138 196 Q 156 190 172 200 Q 180 192 188 200 Q 204 190 222 196
+               Q 210 208 188 202 Q 180 199 172 202 Q 150 208 138 196 Z"
+            fill="#1a1612"/>
+
+      <!-- ===== Mouth (open grimace) ===== -->
+      <path d="M 150 209 Q 180 226 210 209 L 204 216 Q 180 224 156 216 Z"
+            fill="#3a1a1a" stroke="#1a1612" stroke-width="1.5"/>
+      <line x1="168" y1="213" x2="168" y2="219" stroke="#5a3a3a" stroke-width="0.8" opacity="0.6"/>
+      <line x1="180" y1="214" x2="180" y2="220" stroke="#5a3a3a" stroke-width="0.8" opacity="0.6"/>
+      <line x1="192" y1="213" x2="192" y2="219" stroke="#5a3a3a" stroke-width="0.8" opacity="0.6"/>
+
+      <!-- ===== Soy-sauce bottle held UP at chin/face level ===== -->
+      <g transform="translate(148, 178) rotate(-7)">
+        <!-- Cap -->
+        <rect x="13" y="0" width="30" height="24" fill="var(--cap, #b22020)" stroke="#1a1612" stroke-width="2.5" rx="2"/>
+        <line x1="14" y1="6" x2="42" y2="6" stroke="#7a0e0e" stroke-width="1"/>
+        <line x1="14" y1="12" x2="42" y2="12" stroke="#7a0e0e" stroke-width="1"/>
+        <line x1="14" y1="18" x2="42" y2="18" stroke="#7a0e0e" stroke-width="1"/>
+        <!-- Neck -->
+        <rect x="17" y="24" width="22" height="14" fill="var(--bottle, #2a1208)" stroke="#1a1612" stroke-width="2"/>
+        <!-- Shoulders + body -->
+        <path d="M 4 50 Q 4 40 14 35 L 42 35 Q 52 40 52 50 L 52 138 Q 52 146 44 148 L 12 148 Q 4 146 4 138 Z"
+              fill="var(--bottle, #2a1208)" stroke="#1a1612" stroke-width="2.5"/>
+        <!-- Glass highlight -->
+        <path d="M 11 54 L 11 135" stroke="#8a4628" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
+        <path d="M 47 60 L 47 100" stroke="#5a2c14" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <!-- Orange label -->
+        <rect x="7" y="62" width="42" height="58" fill="var(--label, #d4862a)" stroke="#1a1612" stroke-width="1.5"/>
+        <rect x="9" y="64" width="38" height="54" fill="none" stroke="#1a1612" stroke-width="0.6"/>
+        <text x="28" y="92" font-family="serif" font-size="24" font-weight="900" fill="#1a1612" text-anchor="middle">渋</text>
+        <line x1="12" y1="100" x2="44" y2="100" stroke="#1a1612" stroke-width="0.6"/>
+        <text x="28" y="113" font-family="sans-serif" font-size="5" fill="#1a1612" text-anchor="middle" letter-spacing="0.5">SHIBUMI</text>
+      </g>
+
+      <!-- ===== Hands gripping bottle (in front of bottle, at face level) ===== -->
+      <!-- Left hand (viewer's left) — grips bottle body lower, fingers wrapping right -->
+      <g>
+        <path d="M 115 222 Q 105 252 122 274 Q 142 280 168 270 L 172 232 L 145 218 Z"
+              fill="#f0cda6" stroke="#1a1612" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- Knuckle/finger separations wrapping around bottle -->
+        <path d="M 140 236 Q 152 240 168 238" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 138 248 Q 150 252 167 250" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 136 260 Q 148 264 165 262" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 136 270 Q 148 274 162 272" stroke="#1a1612" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <!-- Thumb curling over front of bottle -->
+        <path d="M 168 220 Q 184 222 182 244 Q 176 256 162 250" fill="#f0cda6" stroke="#1a1612" stroke-width="2"/>
+      </g>
+
+      <!-- Right hand (viewer's right) — grips upper bottle/cap area, higher up -->
+      <g>
+        <path d="M 245 198 Q 255 228 238 250 Q 218 256 192 246 L 188 208 L 215 194 Z"
+              fill="#f0cda6" stroke="#1a1612" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M 220 212 Q 208 216 192 214" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 222 224 Q 210 228 193 226" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 224 236 Q 212 240 195 238" stroke="#1a1612" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 224 246 Q 212 250 198 248" stroke="#1a1612" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <!-- Thumb -->
+        <path d="M 192 196 Q 176 198 178 220 Q 184 232 198 226" fill="#f0cda6" stroke="#1a1612" stroke-width="2"/>
+      </g>
+    </symbol>
+
+    <!-- ===== Pixel-art Shibumi (32x32, hands up holding bottle at face level) ===== -->
+    <symbol id="shibumi-pixel" viewBox="0 0 32 32" shape-rendering="crispEdges">
+      <rect width="32" height="32" fill="transparent"/>
+
+      <!-- Hair top (messy spikes) -->
+      <g fill="#1a1612">
+        <rect x="10" y="2" width="2" height="1"/>
+        <rect x="14" y="2" width="2" height="1"/>
+        <rect x="18" y="2" width="2" height="1"/>
+        <rect x="9" y="3" width="14" height="1"/>
+        <rect x="8" y="4" width="16" height="1"/>
+        <rect x="7" y="5" width="18" height="2"/>
+        <rect x="6" y="7" width="20" height="2"/>
+      </g>
+
+      <!-- Face base -->
+      <g fill="#f0cda6">
+        <rect x="8" y="9" width="16" height="10"/>
+      </g>
+
+      <!-- Sideburns / hair sides -->
+      <g fill="#1a1612">
+        <rect x="6" y="9" width="2" height="6"/>
+        <rect x="24" y="9" width="2" height="6"/>
+      </g>
+
+      <!-- Eyebrows (angled inward, furrowed) -->
+      <g fill="#1a1612">
+        <rect x="9" y="10" width="2" height="1"/>
+        <rect x="10" y="11" width="3" height="1"/>
+        <rect x="21" y="10" width="2" height="1"/>
+        <rect x="19" y="11" width="3" height="1"/>
+        <!-- Frown lines between brows -->
+        <rect x="15" y="11" width="1" height="3"/>
+        <rect x="16" y="11" width="1" height="3"/>
+        <!-- Squinted-shut eyes (single horizontal lines with tail = crinkle) -->
+        <rect x="9" y="13" width="5" height="1"/>
+        <rect x="18" y="13" width="5" height="1"/>
+        <rect x="8" y="14" width="1" height="1"/>
+        <rect x="23" y="14" width="1" height="1"/>
+      </g>
+
+      <!-- Nose -->
+      <rect x="16" y="14" width="1" height="2" fill="#c89a78"/>
+
+      <!-- Mustache -->
+      <g fill="#1a1612">
+        <rect x="12" y="15" width="8" height="1"/>
+        <rect x="11" y="16" width="3" height="1"/>
+        <rect x="18" y="16" width="3" height="1"/>
+      </g>
+
+      <!-- Mouth (open grimace) -->
+      <g fill="#3a1a1a">
+        <rect x="14" y="16" width="4" height="1"/>
+        <rect x="13" y="17" width="6" height="1"/>
+      </g>
+
+      <!-- Beard -->
+      <g fill="#1a1612">
+        <rect x="8" y="17" width="3" height="2"/>
+        <rect x="21" y="17" width="3" height="2"/>
+        <rect x="9" y="18" width="14" height="1"/>
+        <rect x="10" y="19" width="12" height="1"/>
+        <rect x="11" y="20" width="10" height="1"/>
+      </g>
+
+      <!-- Neck -->
+      <rect x="14" y="20" width="4" height="1" fill="#f0cda6"/>
+
+      <!-- ===== Hands raised up at face level (in front of beard/lower face) ===== -->
+      <!-- Left hand: viewer's left — grips lower part of bottle body -->
+      <g fill="#f0cda6">
+        <rect x="10" y="17" width="3" height="1"/>
+        <rect x="9" y="18" width="4" height="1"/>
+        <rect x="9" y="19" width="4" height="2"/>
+        <rect x="10" y="21" width="3" height="1"/>
+      </g>
+      <!-- Right hand: viewer's right — grips bottle near cap -->
+      <g fill="#f0cda6">
+        <rect x="19" y="15" width="4" height="1"/>
+        <rect x="19" y="16" width="4" height="1"/>
+        <rect x="19" y="17" width="4" height="2"/>
+        <rect x="20" y="19" width="3" height="1"/>
+      </g>
+
+      <!-- ===== Soy-sauce bottle held UP between hands (face level) ===== -->
+      <!-- Cap (red) -->
+      <rect x="14" y="13" width="4" height="3" fill="#b22020"/>
+      <rect x="14" y="15" width="4" height="1" fill="#7a0e0e"/>
+      <!-- Neck -->
+      <rect x="15" y="16" width="2" height="1" fill="#2a1208"/>
+      <!-- Bottle body (dark brown) -->
+      <rect x="13" y="17" width="6" height="6" fill="#2a1208"/>
+      <rect x="13" y="17" width="1" height="6" fill="#5a2c14"/>
+      <!-- Orange label -->
+      <rect x="14" y="19" width="4" height="3" fill="#d4862a"/>
+      <!-- 渋 character on label -->
+      <text x="16" y="22" font-family="serif" font-size="3" fill="#1a1612" text-anchor="middle" font-weight="bold">渋</text>
+
+      <!-- ===== T-shirt body (lower portion) ===== -->
+      <g fill="#4a4a4a">
+        <rect x="7" y="22" width="18" height="7"/>
+        <rect x="6" y="23" width="20" height="6"/>
+        <rect x="5" y="24" width="22" height="5"/>
+      </g>
+      <!-- Shirt outline -->
+      <g fill="#1a1612">
+        <rect x="4" y="24" width="1" height="5"/>
+        <rect x="27" y="24" width="1" height="5"/>
+        <rect x="14" y="21" width="4" height="1"/>
+      </g>
+
+      <!-- ===== Forearms going up from shoulders to hands (skin) ===== -->
+      <g fill="#f0cda6">
+        <rect x="5" y="22" width="2" height="2"/>
+        <rect x="6" y="20" width="2" height="2"/>
+        <rect x="7" y="19" width="2" height="2"/>
+        <rect x="25" y="22" width="2" height="2"/>
+        <rect x="24" y="20" width="2" height="2"/>
+        <rect x="23" y="19" width="2" height="2"/>
+      </g>
+      <!-- Arm outlines (subtle) -->
+      <g fill="#1a1612">
+        <rect x="4" y="22" width="1" height="2"/>
+        <rect x="27" y="22" width="1" height="2"/>
+      </g>
+    </symbol>
+
+    <!-- ===== Line-art / minimalist Shibumi (hands up holding bottle at face level) ===== -->
+    <symbol id="shibumi-line" viewBox="0 0 200 240">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Head -->
+        <path d="M 50 70 Q 50 25 100 22 Q 150 25 150 70 L 150 130 Q 150 162 100 168 Q 50 162 50 130 Z"/>
+        <!-- Hair (messy parted) -->
+        <path d="M 48 65 Q 40 12 72 18 L 80 36 L 92 14 L 102 38 L 114 14 L 124 36 L 132 18 Q 162 12 152 65"/>
+        <!-- Ears -->
+        <path d="M 50 88 Q 42 90 44 105 Q 48 110 52 108"/>
+        <path d="M 150 88 Q 158 90 156 105 Q 152 110 148 108"/>
+        <!-- Eyebrows (sharply angled, furrowed) -->
+        <path d="M 62 78 Q 74 70 90 86" stroke-width="4"/>
+        <path d="M 138 78 Q 126 70 110 86" stroke-width="4"/>
+        <!-- Frown lines between brows -->
+        <path d="M 94 80 L 94 96"/>
+        <path d="M 100 80 L 100 98"/>
+        <path d="M 106 80 L 106 96"/>
+        <!-- Eyes (tightly squinted shut) -->
+        <path d="M 62 100 Q 76 110 90 100"/>
+        <path d="M 110 100 Q 124 110 138 100"/>
+        <!-- Crow's feet -->
+        <path d="M 58 98 L 53 96" stroke-width="2"/>
+        <path d="M 58 105 L 53 108" stroke-width="2"/>
+        <path d="M 142 98 L 147 96" stroke-width="2"/>
+        <path d="M 142 105 L 147 108" stroke-width="2"/>
+        <!-- Nose -->
+        <path d="M 100 105 Q 94 125 92 134 Q 100 138 108 134 Q 106 125 100 105" stroke-width="2"/>
+        <!-- Mustache -->
+        <path d="M 78 140 Q 92 136 100 142 Q 108 136 122 140"/>
+        <!-- Beard outline -->
+        <path d="M 56 122 Q 66 162 100 168 Q 134 162 144 122"/>
+        <!-- Mouth (grimace) -->
+        <path d="M 86 148 Q 100 158 114 148"/>
+        <!-- Neck -->
+        <path d="M 88 168 L 88 178 Q 100 184 112 178 L 112 168"/>
+
+        <!-- Body / T-shirt -->
+        <path d="M 22 240 L 28 195 Q 32 175 60 170 L 88 178 L 100 188 L 112 178 L 140 170 Q 168 175 172 195 L 178 240"/>
+
+        <!-- Left arm raised: shoulder out to elbow then up to hand at bottle -->
+        <path d="M 60 175 Q 38 188 22 220 Q 18 235 32 238"/>
+        <path d="M 26 232 Q 38 220 60 200 L 80 188"/>
+        <!-- Right arm raised -->
+        <path d="M 140 175 Q 162 188 178 220 Q 182 235 168 238"/>
+        <path d="M 174 232 Q 162 220 140 200 L 120 188"/>
+
+        <!-- Bottle held UP at face level (cap near chin) -->
+        <!-- Cap -->
+        <rect x="86" y="135" width="28" height="14" rx="2"/>
+        <!-- Neck -->
+        <rect x="92" y="149" width="16" height="8"/>
+        <!-- Body -->
+        <path d="M 78 165 Q 78 158 86 156 L 114 156 Q 122 158 122 165 L 122 222 Q 122 230 114 232 L 86 232 Q 78 230 78 222 Z"/>
+        <!-- Label boundary -->
+        <rect x="82" y="180" width="36" height="40"/>
+
+        <!-- Hands gripping bottle -->
+        <!-- Left hand (lower position) -->
+        <path d="M 64 188 Q 60 210 70 226 Q 84 232 100 226 L 100 198 L 84 188 Z"/>
+        <path d="M 88 200 Q 94 205 100 204"/>
+        <path d="M 88 212 Q 94 217 100 216"/>
+        <!-- Right hand (upper position) -->
+        <path d="M 136 175 Q 140 196 130 212 Q 116 218 100 212 L 100 184 L 116 175 Z"/>
+        <path d="M 112 188 Q 106 193 100 192"/>
+        <path d="M 112 200 Q 106 205 100 204"/>
+      </g>
+      <!-- 渋 character on label -->
+      <text x="100" y="205" font-family="serif" font-size="18" fill="currentColor" text-anchor="middle" font-weight="900">渋</text>
+    </symbol>
+
+    <!-- ===== Stamp / circular badge with Shibumi ===== -->
+    <symbol id="shibumi-stamp" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="3"/>
+      <circle cx="100" cy="100" r="85" fill="none" stroke="currentColor" stroke-width="1"/>
+      <use href="#shibumi-line" x="35" y="15" width="130" height="156" style="color: currentColor"/>
+      <text x="100" y="185" font-family="sans-serif" font-size="9" fill="currentColor" text-anchor="middle" font-weight="800" letter-spacing="3">SHIBUMI</text>
+    </symbol>
+
+  </defs>
+</svg>
+
+<!-- ===== Header ===== -->
+<header class="site">
+  <div class="nav">
+    <a href="#" class="brand">
+      <span class="mark">渋</span>
+      <div>
+        <div>SHIBUMI</div>
+        <div class="ja">しぶみストア</div>
+      </div>
+    </a>
+    <nav class="menu">
+      <ul>
+        <li><a href="#products">SHOP</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#lookbook">LOOKBOOK</a></li>
+        <li><a href="#reviews">REVIEWS</a></li>
+      </ul>
+    </nav>
+    <button class="cart-btn" id="openCart">
+      CART
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">SPRING / SUMMER 2026 COLLECTION</div>
+    <h1><span class="stroke">SHIBUMI</span><br/>STORE.</h1>
+    <div class="ja-title">渋み、それは人生の味。</div>
+    <p class="lead">
+      しょうゆをひと口含んで眉をひそめる、その一瞬に宿る美学。
+      Shibumi おじさんと共に、毎日の渋みを纏うアパレルブランド。
+    </p>
+    <div class="cta-row">
+      <a href="#products" class="btn btn-primary">商品を見る →</a>
+      <a href="#about" class="btn btn-ghost">渋みとは?</a>
+    </div>
+  </div>
+  <div class="hero-art" style="--shirt:#4a4a4a">
+    <div class="badge">渋み<br/>100%</div>
+    <svg class="shibumi" viewBox="0 0 360 420" preserveAspectRatio="xMidYMid meet">
+      <use href="#shibumi-illust"/>
+    </svg>
+    <div class="stamp">EST. 2026 / TOKYO</div>
+  </div>
+</section>
+
+<!-- ===== Marquee ===== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>FREE SHIPPING OVER ¥8,000</span>
+    <span>渋みは一日にしてならず</span>
+    <span>NEW DROP / 渋みコレクション</span>
+    <span>MADE IN JAPAN</span>
+    <span>SHIBUMI APPROVED</span>
+    <span>FREE SHIPPING OVER ¥8,000</span>
+    <span>渋みは一日にしてならず</span>
+    <span>NEW DROP / 渋みコレクション</span>
+    <span>MADE IN JAPAN</span>
+    <span>SHIBUMI APPROVED</span>
+  </div>
+</div>
+
+<!-- ===== About ===== -->
+<section class="about" id="about">
+  <div class="about-art" style="--shirt:#1a1612">
+    <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice" style="color:#f5efe3">
+      <rect width="320" height="400" fill="#1a1612"/>
+      <!-- Decorative grid -->
+      <g stroke="rgba(245,239,227,0.05)" stroke-width="1">
+        <line x1="0" y1="80" x2="320" y2="80"/>
+        <line x1="0" y1="160" x2="320" y2="160"/>
+        <line x1="0" y1="240" x2="320" y2="240"/>
+        <line x1="0" y1="320" x2="320" y2="320"/>
+        <line x1="80" y1="0" x2="80" y2="400"/>
+        <line x1="160" y1="0" x2="160" y2="400"/>
+        <line x1="240" y1="0" x2="240" y2="400"/>
+      </g>
+      <use href="#shibumi-line" x="55" y="60" width="220" height="280" style="color:#f5efe3"/>
+      <text x="160" y="370" font-family="serif" font-size="14" fill="#c8a24a" text-anchor="middle" letter-spacing="6">— SHIBUMI —</text>
+    </svg>
+  </div>
+  <div class="about-text">
+    <div class="label">ABOUT THE BRAND</div>
+    <h2>渋いおじさんに、<br/>世界はもっと優しい。</h2>
+    <p>
+      ある日、Shibumi（しぶみ）はキッチンでしょうゆの瓶を手に取り、
+      ラベルをじっと見つめた。眉を寄せ、口は半開き、
+      その表情はまさに「渋み」そのものだった。
+    </p>
+    <p>
+      私たちはその一瞬を永遠にしたかった。だから T シャツに、フーディに、
+      トートバッグに、Shibumi の渋い顔を刻み込む。
+      それが SHIBUMI STORE の唯一にして全てのコンセプト。
+    </p>
+    <div class="quote">
+      "辛さの先にある、ほろ苦さを愛せ。" — Shibumi
+    </div>
+  </div>
+</section>
+
+<!-- ===== Products ===== -->
+<section class="products" id="products">
+  <div class="section-head">
+    <div>
+      <div class="label">— THE COLLECTION —</div>
+      <h2>渋みを着る、毎日。</h2>
+    </div>
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="tops">TOPS</button>
+      <button class="filter-btn" data-filter="goods">GOODS</button>
+      <button class="filter-btn" data-filter="accessories">ACCESSORIES</button>
+    </div>
+  </div>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<!-- ===== Lookbook ===== -->
+<section class="lookbook" id="lookbook">
+  <div class="lookbook-inner">
+    <div class="section-head">
+      <div>
+        <div class="label">— LOOKBOOK —</div>
+        <h2>SHIBUMI MOOD.</h2>
+      </div>
+    </div>
+    <div class="look-grid">
+      <div class="look-card" style="--shirt:#a23b1f">
+        <svg viewBox="0 0 320 420" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="420" fill="#a23b1f"/>
+          <use href="#shibumi-illust" x="-20" y="20" width="360" height="400"/>
+        </svg>
+        <div class="caption">01 / RUST RED</div>
+      </div>
+      <div class="look-card" style="--shirt:#5b6347">
+        <svg viewBox="0 0 320 420" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="420" fill="#5b6347"/>
+          <g style="color:#f5efe3"><use href="#shibumi-stamp" x="60" y="60" width="200" height="200"/></g>
+          <text x="160" y="320" font-family="serif" font-size="20" fill="#f5efe3" text-anchor="middle" letter-spacing="6">渋み</text>
+          <text x="160" y="350" font-family="sans-serif" font-size="11" fill="#c8a24a" text-anchor="middle" letter-spacing="4">MOSS EDITION</text>
+        </svg>
+        <div class="caption">02 / MOSS GREEN</div>
+      </div>
+      <div class="look-card" style="--shirt:#1a1612">
+        <svg viewBox="0 0 320 420" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="420" fill="#f5efe3"/>
+          <!-- Repeating pixel pattern -->
+          <g>
+            <use href="#shibumi-pixel" x="20" y="40" width="80" height="80"/>
+            <use href="#shibumi-pixel" x="120" y="40" width="80" height="80"/>
+            <use href="#shibumi-pixel" x="220" y="40" width="80" height="80"/>
+            <use href="#shibumi-pixel" x="20" y="140" width="80" height="80"/>
+            <use href="#shibumi-pixel" x="120" y="140" width="80" height="80"/>
+            <use href="#shibumi-pixel" x="220" y="140" width="80" height="80"/>
+            <use href="#shibumi-pixel" x="20" y="240" width="80" height="80"/>
+            <use href="#shibumi-pixel" x="120" y="240" width="80" height="80"/>
+            <use href="#shibumi-pixel" x="220" y="240" width="80" height="80"/>
+          </g>
+          <rect x="0" y="340" width="320" height="80" fill="#1a1612"/>
+          <text x="160" y="385" font-family="monospace" font-size="14" fill="#f5efe3" text-anchor="middle" letter-spacing="6">8-BIT SHIBUMI</text>
+        </svg>
+        <div class="caption">03 / PIXEL EDITION</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Reviews ===== -->
+<section class="reviews" id="reviews">
+  <div class="section-head">
+    <div>
+      <div class="label">— VOICES —</div>
+      <h2>渋み愛好家たちの声。</h2>
+    </div>
+  </div>
+  <div class="review-grid">
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"職場で着たら部長が無言で頷きました。これは『渋い』と認められた瞬間だと思います。"</p>
+      <div class="who">
+        <div class="avatar">T</div>
+        <div>田村 さん / 32歳 / 営業職</div>
+      </div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"トートバッグの Shibumi おじさんと毎朝目が合います。月曜日が少しだけ怖くなくなりました。"</p>
+      <div class="who">
+        <div class="avatar">M</div>
+        <div>松本 さん / 28歳 / フリーランス</div>
+      </div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★☆</div>
+      <p>"パーカーのフードを被ると、自分も少しだけ Shibumi になれた気がする。これが渋みか。"</p>
+      <div class="who">
+        <div class="avatar">K</div>
+        <div>小林 さん / 41歳 / エンジニア</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Newsletter ===== -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2>渋みニュースレター</h2>
+    <p>新作、限定アイテム、Shibumi の日々のしょうゆ事情をお届けします。</p>
+    <form onsubmit="event.preventDefault(); showToast('登録ありがとうございます。Shibumi より、渋い愛を込めて。');">
+      <input type="email" placeholder="your-email@example.com" required />
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="mark">渋</span>
+        <div>
+          <div style="letter-spacing:0.18em;font-weight:800">SHIBUMI</div>
+          <div style="font-size:11px;letter-spacing:0.3em;color:var(--gold);margin-top:2px">しぶみストア</div>
+        </div>
+      </div>
+      <p>東京を拠点に、しぶいおじさんと、しぶい毎日のためのアパレルを生み出すダミーECブランドです。</p>
+    </div>
+    <div>
+      <h4>SHOP</h4>
+      <ul>
+        <li><a href="#products">Tシャツ</a></li>
+        <li><a href="#products">パーカー</a></li>
+        <li><a href="#products">トートバッグ</a></li>
+        <li><a href="#products">アクセサリー</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>HELP</h4>
+      <ul>
+        <li><a href="#">配送について</a></li>
+        <li><a href="#">返品・交換</a></li>
+        <li><a href="#">サイズガイド</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>FOLLOW</h4>
+      <ul>
+        <li><a href="#">Instagram @shibumi_store</a></li>
+        <li><a href="#">X @shibumi_jp</a></li>
+        <li><a href="#">Note</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">
+    <div>© 2026 SHIBUMI STORE — これはダミーサイトです。実在の商品ではありません。</div>
+    <div>Designed with 渋み in Tokyo.</div>
+  </div>
+</footer>
+
+<!-- ===== Cart Drawer ===== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-header">
+    <h3>YOUR CART</h3>
+    <button class="cart-close" id="closeCart" aria-label="Close cart">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>小計</span>
+      <span id="cartTotal">¥0</span>
+    </div>
+    <button class="checkout-btn" onclick="showToast('これはダミーサイトです。決済は行われません。');">レジに進む</button>
+    <div class="cart-note">※ 送料・税は次のステップで計算されます。</div>
+  </div>
+</aside>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ===================== Product data ===================== */
+  const products = [
+    {
+      id: 'p1',
+      name: '渋 TEE / Charcoal',
+      cat: 'tops',
+      price: 4800,
+      colors: ['#1a1612', '#f5efe3', '#a23b1f'],
+      tag: { label: 'BEST', cls: 'hot' },
+      bg: '#f5efe3',
+      shirt: '#1a1612',
+      style: 'illust',
+    },
+    {
+      id: 'p2',
+      name: '渋み HOODIE / Cream',
+      cat: 'tops',
+      price: 9800,
+      colors: ['#f5efe3', '#5b6347', '#1a1612'],
+      tag: { label: 'NEW', cls: 'new' },
+      bg: '#ebe2d0',
+      shirt: '#f5efe3',
+      style: 'stamp',
+    },
+    {
+      id: 'p3',
+      name: '8-BIT SHIBUMI TEE',
+      cat: 'tops',
+      price: 5200,
+      colors: ['#5b6347', '#1a1612'],
+      tag: { label: 'LIMITED', cls: 'hot' },
+      bg: '#1a1612',
+      shirt: '#5b6347',
+      style: 'pixel',
+    },
+    {
+      id: 'p4',
+      name: 'SHIBUMI TOTE BAG',
+      cat: 'goods',
+      price: 3200,
+      colors: ['#f5efe3', '#1a1612'],
+      tag: null,
+      bg: '#f5efe3',
+      shirt: '#f5efe3',
+      style: 'tote',
+    },
+    {
+      id: 'p5',
+      name: '渋み MUG / Stoneware',
+      cat: 'goods',
+      price: 2400,
+      colors: ['#ebe2d0'],
+      tag: null,
+      bg: '#a23b1f',
+      shirt: '#ebe2d0',
+      style: 'mug',
+    },
+    {
+      id: 'p6',
+      name: 'SHIBUMI CAP',
+      cat: 'accessories',
+      price: 4400,
+      colors: ['#1a1612', '#5b6347'],
+      tag: { label: 'NEW', cls: 'new' },
+      bg: '#ebe2d0',
+      shirt: '#1a1612',
+      style: 'cap',
+    },
+    {
+      id: 'p7',
+      name: '渋み TOTE / Olive',
+      cat: 'goods',
+      price: 3600,
+      colors: ['#5b6347'],
+      tag: null,
+      bg: '#ebe2d0',
+      shirt: '#5b6347',
+      style: 'tote-olive',
+    },
+    {
+      id: 'p8',
+      name: 'SHIBUMI STICKER PACK',
+      cat: 'accessories',
+      price: 800,
+      colors: ['#f5efe3'],
+      tag: null,
+      bg: '#f5efe3',
+      shirt: '#f5efe3',
+      style: 'stickers',
+    },
+  ];
+
+  /* ===================== Product visuals ===================== */
+  function productSVG(p) {
+    if (p.style === 'illust') {
+      return `
+        <svg viewBox="0 0 360 360" preserveAspectRatio="xMidYMid slice" style="--shirt:${p.shirt}">
+          <rect width="360" height="360" fill="${p.bg}"/>
+          <use href="#shibumi-illust" x="0" y="-20" width="360" height="400"/>
+        </svg>`;
+    }
+    if (p.style === 'stamp') {
+      return `
+        <svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="320" fill="${p.bg}"/>
+          <g style="color:#1a1612"><use href="#shibumi-stamp" x="60" y="55" width="200" height="200"/></g>
+          <text x="160" y="285" font-family="sans-serif" font-size="11" fill="#1a1612" text-anchor="middle" letter-spacing="4">SHIBUMI HOODIE</text>
+        </svg>`;
+    }
+    if (p.style === 'pixel') {
+      return `
+        <svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="320" fill="${p.bg}"/>
+          <use href="#shibumi-pixel" x="50" y="40" width="220" height="220"/>
+          <text x="160" y="290" font-family="monospace" font-size="14" fill="#f5efe3" text-anchor="middle" letter-spacing="6">8-BIT SHIBUMI</text>
+        </svg>`;
+    }
+    if (p.style === 'tote') {
+      return `
+        <svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="320" fill="${p.bg}"/>
+          <!-- Tote body -->
+          <path d="M 70 110 L 250 110 L 270 290 L 50 290 Z" fill="#ebe2d0" stroke="#1a1612" stroke-width="3"/>
+          <!-- Handles -->
+          <path d="M 100 110 Q 100 50 130 50 L 145 50 Q 145 65 145 110" fill="none" stroke="#1a1612" stroke-width="3"/>
+          <path d="M 220 110 Q 220 50 190 50 L 175 50 Q 175 65 175 110" fill="none" stroke="#1a1612" stroke-width="3"/>
+          <!-- Print on tote -->
+          <g style="color:#1a1612"><use href="#shibumi-line" x="100" y="140" width="120" height="132"/></g>
+        </svg>`;
+    }
+    if (p.style === 'tote-olive') {
+      return `
+        <svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="320" fill="${p.bg}"/>
+          <path d="M 70 110 L 250 110 L 270 290 L 50 290 Z" fill="#5b6347" stroke="#1a1612" stroke-width="3"/>
+          <path d="M 100 110 Q 100 50 130 50 L 145 50 Q 145 65 145 110" fill="none" stroke="#1a1612" stroke-width="3"/>
+          <path d="M 220 110 Q 220 50 190 50 L 175 50 Q 175 65 175 110" fill="none" stroke="#1a1612" stroke-width="3"/>
+          <g style="color:#f5efe3"><use href="#shibumi-line" x="100" y="140" width="120" height="132"/></g>
+        </svg>`;
+    }
+    if (p.style === 'mug') {
+      return `
+        <svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="320" fill="${p.bg}"/>
+          <!-- Mug -->
+          <rect x="80" y="100" width="140" height="160" rx="8" fill="#ebe2d0" stroke="#1a1612" stroke-width="3"/>
+          <!-- Handle -->
+          <path d="M 220 130 Q 270 130 270 175 Q 270 220 220 220" fill="none" stroke="#1a1612" stroke-width="3"/>
+          <ellipse cx="150" cy="105" rx="68" ry="10" fill="#3a3530" stroke="#1a1612" stroke-width="3"/>
+          <!-- Print -->
+          <g style="color:#1a1612"><use href="#shibumi-line" x="100" y="115" width="100" height="110"/></g>
+        </svg>`;
+    }
+    if (p.style === 'cap') {
+      return `
+        <svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="320" fill="${p.bg}"/>
+          <!-- Cap crown -->
+          <path d="M 70 180 Q 70 100 160 95 Q 250 100 250 180 Z" fill="${p.shirt}" stroke="#1a1612" stroke-width="3"/>
+          <!-- Visor -->
+          <path d="M 50 180 L 270 180 Q 280 200 250 215 L 70 215 Q 40 200 50 180 Z" fill="${p.shirt}" stroke="#1a1612" stroke-width="3"/>
+          <!-- Seam -->
+          <path d="M 160 95 L 160 180" stroke="#1a1612" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <!-- Stitching -->
+          <ellipse cx="160" cy="95" rx="6" ry="6" fill="#1a1612"/>
+          <!-- Front patch -->
+          <g style="color:#f5efe3">
+            <use href="#shibumi-line" x="120" y="115" width="80" height="60"/>
+          </g>
+        </svg>`;
+    }
+    if (p.style === 'stickers') {
+      return `
+        <svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="320" fill="${p.bg}"/>
+          <!-- Sticker 1 - circle -->
+          <g transform="translate(60,55)">
+            <circle cx="50" cy="50" r="48" fill="#a23b1f" stroke="#1a1612" stroke-width="2"/>
+            <g style="color:#f5efe3"><use href="#shibumi-line" x="15" y="10" width="70" height="77"/></g>
+          </g>
+          <!-- Sticker 2 - square -->
+          <g transform="translate(180,55)">
+            <rect x="0" y="0" width="100" height="100" rx="10" fill="#1a1612" stroke="#1a1612" stroke-width="2"/>
+            <use href="#shibumi-pixel" x="10" y="10" width="80" height="80"/>
+          </g>
+          <!-- Sticker 3 - rounded -->
+          <g transform="translate(60,180)">
+            <rect x="0" y="0" width="100" height="100" rx="50" fill="#5b6347" stroke="#1a1612" stroke-width="2"/>
+            <text x="50" y="45" font-family="serif" font-size="36" fill="#f5efe3" text-anchor="middle" font-weight="900">渋</text>
+            <text x="50" y="72" font-family="sans-serif" font-size="9" fill="#c8a24a" text-anchor="middle" letter-spacing="3">SHIBUMI</text>
+          </g>
+          <!-- Sticker 4 - hexagon -->
+          <g transform="translate(180,180)">
+            <polygon points="50,5 90,28 90,72 50,95 10,72 10,28" fill="#c8a24a" stroke="#1a1612" stroke-width="2"/>
+            <g style="color:#1a1612"><use href="#shibumi-line" x="20" y="15" width="60" height="66"/></g>
+          </g>
+        </svg>`;
+    }
+    return '';
+  }
+
+  /* ===================== Render products ===================== */
+  const grid = document.getElementById('productGrid');
+  function renderProducts(filter = 'all') {
+    const list = filter === 'all' ? products : products.filter(p => p.cat === filter);
+    grid.innerHTML = list.map(p => `
+      <div class="card" data-id="${p.id}">
+        <div class="thumb">
+          ${p.tag ? `<span class="tag ${p.tag.cls}">${p.tag.label}</span>` : ''}
+          ${productSVG(p)}
+          <button class="quick-add" data-add="${p.id}" aria-label="Add to cart">+</button>
+        </div>
+        <h3>${p.name}</h3>
+        <div class="meta">${p.cat.toUpperCase()}</div>
+        <div class="price-row">
+          <span class="price">¥${p.price.toLocaleString()}</span>
+          <div class="colors">
+            ${p.colors.map(c => `<span class="swatch" style="background:${c}"></span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `).join('');
+    // Bind quick-add
+    grid.querySelectorAll('[data-add]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        addToCart(btn.dataset.add);
+      });
+    });
+  }
+  renderProducts();
+
+  /* Filters */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProducts(btn.dataset.filter);
+    });
+  });
+
+  /* ===================== Cart logic ===================== */
+  const cart = new Map(); // id -> qty
+  const cartCountEl = document.getElementById('cartCount');
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartTotalEl = document.getElementById('cartTotal');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartOverlay = document.getElementById('cartOverlay');
+
+  function addToCart(id) {
+    cart.set(id, (cart.get(id) || 0) + 1);
+    renderCart();
+    const p = products.find(x => x.id === id);
+    showToast(`「${p.name}」をカートに追加しました。`);
+  }
+  function changeQty(id, delta) {
+    const q = (cart.get(id) || 0) + delta;
+    if (q <= 0) cart.delete(id);
+    else cart.set(id, q);
+    renderCart();
+  }
+  function removeFromCart(id) {
+    cart.delete(id);
+    renderCart();
+  }
+  function renderCart() {
+    let total = 0;
+    let count = 0;
+    if (cart.size === 0) {
+      cartItemsEl.innerHTML = `
+        <div class="cart-empty">
+          <div style="font-size:48px;opacity:0.3">渋</div>
+          <p style="margin-top:12px">カートに渋みがまだありません。</p>
+        </div>`;
+    } else {
+      cartItemsEl.innerHTML = [...cart.entries()].map(([id, q]) => {
+        const p = products.find(x => x.id === id);
+        total += p.price * q;
+        count += q;
+        return `
+          <div class="cart-item">
+            <div class="ci-thumb">${productSVG(p)}</div>
+            <div class="ci-body">
+              <div class="ci-title">${p.name}</div>
+              <div class="ci-meta">¥${p.price.toLocaleString()}</div>
+              <div class="qty">
+                <button onclick="changeQty('${id}',-1)">−</button>
+                <span>${q}</span>
+                <button onclick="changeQty('${id}',1)">＋</button>
+              </div>
+              <div class="ci-price">¥${(p.price * q).toLocaleString()}</div>
+            </div>
+            <button class="ci-remove" onclick="removeFromCart('${id}')">削除</button>
+          </div>`;
+      }).join('');
+      // accumulate count if cart non-empty
+      [...cart.values()].forEach(v => { /* already counted above */ });
+    }
+    if (cart.size === 0) count = 0;
+    else count = [...cart.values()].reduce((a,b) => a+b, 0);
+    cartCountEl.textContent = count;
+    cartTotalEl.textContent = `¥${total.toLocaleString()}`;
+  }
+  renderCart();
+
+  /* Cart drawer toggle */
+  function openCart() {
+    cartDrawer.classList.add('open');
+    cartOverlay.classList.add('open');
+    cartDrawer.setAttribute('aria-hidden', 'false');
+  }
+  function closeCart() {
+    cartDrawer.classList.remove('open');
+    cartOverlay.classList.remove('open');
+    cartDrawer.setAttribute('aria-hidden', 'true');
+  }
+  document.getElementById('openCart').addEventListener('click', openCart);
+  document.getElementById('closeCart').addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
+
+  /* Toast */
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+  }
+  window.changeQty = changeQty;
+  window.removeFromCart = removeFromCart;
+  window.showToast = showToast;
+</script>
+
+</body>
+</html>
