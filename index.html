@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="恋愛シミュレーションゲーム「減塩醤油だって、知らなかったよ」のプロモーションサイト。これは架空商品のダミーサイトです。"
+    />
+    <title>減塩醤油だって、知らなかったよ | 公式プロモーションサイト</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --background: #f7f3f5;
+        --surface: #ffffff;
+        --surface-soft: #fff8fb;
+        --text: #1d1d1f;
+        --muted: #6e6e73;
+        --border: #dfd2d8;
+        --accent: #d94f7d;
+        --accent-strong: #b83d68;
+        --ink: #2a2025;
+        --gold: #a8732f;
+        --shadow: 0 18px 45px rgba(66, 39, 52, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 88px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN",
+          "Yu Gothic", Meiryo, sans-serif;
+        line-height: 1.7;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible {
+        outline: 3px solid rgba(217, 79, 125, 0.35);
+        outline-offset: 3px;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 24px;
+        min-height: 72px;
+        border-bottom: 1px solid rgba(223, 210, 216, 0.82);
+        background: rgba(255, 255, 255, 0.88);
+        padding: 0 max(24px, calc((100vw - 1180px) / 2));
+        backdrop-filter: blur(16px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+      }
+
+      .brand-mark {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #ffffff;
+      }
+
+      .site-nav {
+        display: flex;
+        justify-content: center;
+        gap: 22px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .site-nav a:hover {
+        color: var(--text);
+      }
+
+      .header-cta,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        padding: 9px 16px;
+        font-weight: 800;
+      }
+
+      .header-cta,
+      .button.primary {
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .header-cta:hover,
+      .button.primary:hover {
+        background: var(--accent-strong);
+      }
+
+      .button.secondary {
+        border-color: var(--border);
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        position: relative;
+        isolation: isolate;
+        min-height: calc(100dvh - 72px);
+        display: grid;
+        align-items: center;
+        padding: 56px 0 42px;
+      }
+
+      .hero::before {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(29, 29, 31, 0.78), rgba(29, 29, 31, 0.34) 50%, rgba(29, 29, 31, 0.06)),
+          url("assets/key-art-poster.png") center / cover;
+        content: "";
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: auto 0 0;
+        z-index: -1;
+        height: 24%;
+        background: linear-gradient(180deg, rgba(247, 243, 245, 0), var(--background));
+        content: "";
+      }
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.52fr);
+        gap: 44px;
+        align-items: center;
+      }
+
+      .hero-copy {
+        max-width: 700px;
+        color: #ffffff;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.34);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: inherit;
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 18px;
+        font-size: clamp(2.6rem, 7vw, 6.1rem);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 0;
+        font-size: clamp(1.7rem, 3vw, 2.65rem);
+        line-height: 1.2;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        font-size: 1.08rem;
+        line-height: 1.35;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 630px;
+        margin-bottom: 24px;
+        font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .platforms {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .platforms li,
+      .tag {
+        border: 1px solid rgba(255, 255, 255, 0.46);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 4px 10px;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .hero-package {
+        align-self: end;
+        margin: 0;
+      }
+
+      .hero-package img {
+        width: min(360px, 100%);
+        margin-left: auto;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .notice {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+        padding: 14px 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .notice p {
+        margin: 0;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.5fr);
+        gap: 32px;
+        align-items: end;
+        margin-bottom: 28px;
+      }
+
+      .section-heading p,
+      .story-card p,
+      .feature-card p,
+      .spec-list dd,
+      .footer-note {
+        color: var(--muted);
+      }
+
+      .poster-panel {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1fr);
+        gap: 26px;
+        align-items: stretch;
+      }
+
+      .poster-panel figure,
+      .screenshot-card,
+      .story-card,
+      .feature-card,
+      .spec-panel {
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      .poster-panel figure {
+        margin: 0;
+      }
+
+      .poster-panel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .story-stack {
+        display: grid;
+        gap: 14px;
+      }
+
+      .story-card {
+        padding: 24px;
+      }
+
+      .story-card p {
+        margin-bottom: 0;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .feature-card {
+        padding: 22px;
+      }
+
+      .feature-number {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 14px;
+        border-radius: 8px;
+        background: var(--surface-soft);
+        color: var(--accent-strong);
+        font-weight: 900;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .screenshot-card img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .screenshot-card figcaption {
+        padding: 16px 18px 18px;
+      }
+
+      .screenshot-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .spec-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(260px, 1fr);
+        gap: 24px;
+        padding: 26px;
+      }
+
+      .spec-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+      }
+
+      .spec-list div {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 14px;
+        border-top: 1px solid var(--border);
+        padding-top: 12px;
+      }
+
+      .spec-list dt {
+        color: var(--gold);
+        font-weight: 800;
+      }
+
+      .spec-list dd {
+        margin: 0;
+      }
+
+      .closing {
+        display: grid;
+        place-items: center;
+        min-height: 420px;
+        background:
+          linear-gradient(180deg, rgba(42, 32, 37, 0.72), rgba(42, 32, 37, 0.82)),
+          url("assets/gameplay-fantasy.png") center / cover;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .closing .container {
+        max-width: 800px;
+      }
+
+      .closing p {
+        margin-bottom: 24px;
+        font-size: 1.08rem;
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--border);
+        background: var(--surface);
+        padding: 24px 0;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .footer-note {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition-duration: 1ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .site-header {
+          grid-template-columns: 1fr auto;
+        }
+
+        .site-nav {
+          display: none;
+        }
+
+        .hero-layout,
+        .section-heading,
+        .poster-panel,
+        .spec-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-package {
+          display: none;
+        }
+
+        .feature-grid,
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        html {
+          scroll-padding-top: 68px;
+        }
+
+        .site-header {
+          min-height: 64px;
+          padding: 0 12px;
+        }
+
+        .brand span:last-child {
+          display: none;
+        }
+
+        .header-cta {
+          padding-inline: 12px;
+        }
+
+        .container {
+          width: min(100% - 24px, 1180px);
+        }
+
+        .hero {
+          padding: 48px 0 34px;
+        }
+
+        h1 {
+          font-size: 2.6rem;
+        }
+
+        .section {
+          padding: 52px 0;
+        }
+
+        .spec-list div {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+
+        .footer-row {
+          align-items: start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="減塩醤油だって、知らなかったよ トップ">
+        <span class="brand-mark" aria-hidden="true">醤</span>
+        <span>減塩醤油だって、知らなかったよ</span>
+      </a>
+      <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a href="#story">ストーリー</a>
+        <a href="#features">特徴</a>
+        <a href="#gallery">画面写真</a>
+        <a href="#spec">製品情報</a>
+      </nav>
+      <a class="header-cta" href="#spec">製品情報</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">恋愛シミュレーションゲーム</p>
+            <h1 id="heroTitle">減塩醤油だって、知らなかったよ</h1>
+            <p class="lead">
+              その想い、伝えるつもりだったのに。一本の醤油をきっかけに、
+              すれ違いと選択が少しずつ未来を変えていく、ちょっぴり切ないラブストーリー。
+            </p>
+            <div class="hero-actions" aria-label="ページ内リンク">
+              <a class="button primary" href="#gallery">画面写真を見る</a>
+              <a class="button secondary" href="#story">物語を読む</a>
+            </div>
+            <ul class="platforms" aria-label="対応機種">
+              <li>Nintendo Switch</li>
+              <li>PlayStation 5</li>
+              <li>Steam</li>
+              <li>PC DVD-ROM</li>
+            </ul>
+          </div>
+          <figure class="hero-package" aria-label="PCゲームパッケージ">
+            <img
+              src="assets/key-art-box.png"
+              alt="PCゲーム版「減塩醤油だって、知らなかったよ」のパッケージ"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <aside class="notice" aria-label="サイトについて">
+        <div class="container">
+          <p>
+            このサイトは架空ゲームのプロモーション用ダミーサイトです。掲載されている製品・発売情報・購入導線は実在しません。
+          </p>
+        </div>
+      </aside>
+
+      <section id="story" class="section" aria-labelledby="storyTitle">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Story</p>
+              <h2 id="storyTitle">これは、醤油一本から始まる告白未満の物語。</h2>
+            </div>
+            <p>
+              日常のスーパー、異世界の選択肢、名前の呼び方。ほんの小さな違和感が、
+              Shibumiとの距離を近づけたり、遠ざけたりします。
+            </p>
+          </div>
+
+          <div class="poster-panel">
+            <figure>
+              <img
+                src="assets/key-art-poster.png"
+                alt="メインビジュアル。男性が減塩醤油を見つめ、恋愛と勘違いをテーマにしたコピーが添えられている"
+              />
+            </figure>
+            <div class="story-stack">
+              <article class="story-card">
+                <h3>主人公は、なぜ減塩醤油を選んだのか。</h3>
+                <p>
+                  その答えを知るために、あなたは彼の表情、沈黙、そして選択肢の行間を読み解いていきます。
+                </p>
+              </article>
+              <article class="story-card">
+                <h3>選択肢で未来が変わるマルチエンディング。</h3>
+                <p>
+                  優しさのつもりの一言が誤解になり、冗談のつもりの一言が思いがけない告白になることも。
+                </p>
+              </article>
+              <article class="story-card">
+                <h3>甘いだけでは終わらない。</h3>
+                <p>
+                  減塩なのに濃い。軽い会話の奥に、少しだけ苦くて忘れにくい余韻が残ります。
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section" aria-labelledby="featuresTitle">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Features</p>
+              <h2 id="featuresTitle">恋愛、勘違い、そして選択。</h2>
+            </div>
+            <p>
+              王道の恋愛シミュレーションに、食品売り場の現実感と突然の異世界感をひとさじ。
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="feature-number">01</span>
+              <h3>会話で育つ距離感</h3>
+              <p>
+                何気ない名前の感想や返事が、好感度だけでなくShibumiの表情にも影響します。
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">02</span>
+              <h3>日常から非日常へ</h3>
+              <p>
+                スーパーの醤油売り場から、星空と古城が広がる異世界まで。場面転換も見どころです。
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">03</span>
+              <h3>ちょっぴり切ない結末</h3>
+              <p>
+                マルチエンディング形式で、伝える言葉を間違えた先の未来まで描きます。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section" aria-labelledby="galleryTitle">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Screenshots</p>
+              <h2 id="galleryTitle">画面写真</h2>
+            </div>
+            <p>
+              日常会話も、核心に迫る問いも、すべてはあなたの選択から始まります。
+            </p>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="screenshot-card">
+              <img
+                src="assets/gameplay-store.png"
+                alt="スーパーの醤油売り場でShibumiという名前について選択肢が表示されているゲーム画面"
+              />
+              <figcaption>
+                <h3>昼休み、醤油売り場にて</h3>
+                <p>軽い雑談のつもりが、未来を左右する最初の選択になる。</p>
+              </figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <img
+                src="assets/gameplay-fantasy.png"
+                alt="幻想的な星空の背景でLLMについて問われる選択肢が表示されているゲーム画面"
+              />
+              <figcaption>
+                <h3>異世界で問われる本質</h3>
+                <p>あなたの理解と沈黙が、物語の分岐点を静かに照らす。</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="spec" class="section" aria-labelledby="specTitle">
+        <div class="container">
+          <div class="spec-panel">
+            <div>
+              <p class="eyebrow">Product Info</p>
+              <h2 id="specTitle">製品情報</h2>
+              <p>
+                店頭に並びそうで並ばない、架空タイトルのためのプロモーションページです。
+                サブページは用意せず、このページ内で世界観と基本情報を確認できます。
+              </p>
+            </div>
+            <dl class="spec-list">
+              <div>
+                <dt>タイトル</dt>
+                <dd>減塩醤油だって、知らなかったよ</dd>
+              </div>
+              <div>
+                <dt>ジャンル</dt>
+                <dd>恋愛シミュレーションゲーム</dd>
+              </div>
+              <div>
+                <dt>対応機種</dt>
+                <dd>Nintendo Switch / PlayStation 5 / Steam / PC DVD-ROM</dd>
+              </div>
+              <div>
+                <dt>レーティング</dt>
+                <dd>CERO B 相当のダミー表記</dd>
+              </div>
+              <div>
+                <dt>発売元</dt>
+                <dd>SAKURA SOFT</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closingTitle">
+        <div class="container">
+          <p class="eyebrow">Coming someday</p>
+          <h2 id="closingTitle">その想い、伝えるつもりだったのに。</h2>
+          <p>
+            減塩醤油を手にした瞬間から、あなたの選択はもう始まっています。
+          </p>
+          <a class="button primary" href="#top">トップへ戻る</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <strong>SAKURA SOFT</strong>
+        <p class="footer-note">Dummy promotional website. No product or purchase page exists.</p>
+      </div>
+    </footer>
+  </body>
+</html>
